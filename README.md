@@ -7,7 +7,11 @@
 ### stochastic gradient descent
 对每个样本，求解其梯度。
 ### proximal gradient descent
-针对L1约束的情况下，由于在x_{i}=0处不可导，所以无法对损失函数求导，运用L
+针对L1约束的情况下，由于在x_{i}=0处不可导，所以无法对损失函数求导，但Δf(x)满足L-Lipschitz，将其化简成：
+Prox_{h,\eta} (x) = \arg\!\min_y \frac{1}{2\eta}\|y - x\|^2 + \|y\|_1 = \hat{y}
+具体详见：https://www.zhihu.com/question/38426074
+
 
 ### L-LBGS
+利用泰勒展开，对当前参数求一阶和二阶梯度，取得下一次迭代的参数，但由于样本维度过多，导致二阶导矩阵存储量较大，利用近m个样本的s_{i},y_{i}近似的模拟D_{k}。具体算法：https://blog.csdn.net/itplus/article/details/21897715
 ### OWL-QN
